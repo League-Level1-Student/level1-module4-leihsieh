@@ -30,28 +30,32 @@ public class SimonSays extends KeyAdapter {
 
 	// Complete steps 1 - 7 before you test
 	// 1. Declare a JFrame variable
-
+	JFrame jf = new JFrame();
 	public void run() {
 		// 2. Add the four images that match keyboard keys like this:
 		// images.put(KeyEvent.VK_UP, "up.jpg");
-
+		images.put(KeyEvent.VK_UP, "up.jpg");
+		images.put(KeyEvent.VK_DOWN, "down.jpg");
+		images.put(KeyEvent.VK_LEFT, "left.jpg");
+		images.put(KeyEvent.VK_RIGHT, "right.jpg");
 		// 3. Use a JOptionPane to tell the user the rules: "Press the matching
 		// key when
 		// 'Simon says' otherwise press a different key"
-
+		JOptionPane.showMessageDialog(null, "Press the Matching key when 'Simon Says', otherwise press a different key");
 		// 4. Call the showImage method to show an image
-
+		showImage();
 	}
 
 	public void keyPressed(KeyEvent e) {
 		// 15. Make a points variable to track the score.
-
+		int points;
 		// 16. If the keyCode matches the imageIndex and "Simon says"
-
+		//if (keyCode.equals("Simon says")) {
 		// 17. Increase the value of score
-
+			
 		// 18. Use the speak method to tell the user they were correct
 
+		//}
 		// 19. If the keyCode doesn't match the imageIndex and "Simon didn't
 		// say..."
 
@@ -74,28 +78,36 @@ public class SimonSays extends KeyAdapter {
 
 	private void showImage() {
 		// 5. Initialize your frame to a new JFrame()
-
+		jf = new JFrame();
 		// 6. Set the frame to visible
-
+		jf.setVisible(true);
 		// 7. Uncomment the following line to add a random image to your frame
-		// frame.add(getNextRandomImage());
+		jf.add(getNextRandomImage());
 
 		// 8. Set the name of your frame
-
+		jf.setName("jname");
 		// 9. Pack the frame
-
+		jf.pack();
 		// 10. Set the defaultCloseOperation of your frame to
-		// JFrame.EXIT_ON_CLOSE
+		jf.setDefaultCloseOperation(jf.EXIT_ON_CLOSE);
 
 		// 11. Add a key listener to the frame
-
+		jf.addKeyListener(this);
 		// 12. Create a new instance of Random
-
+		Random r = new Random();
+		int a = r.nextInt(1);
 		// 13. Use the Random and the speak method to either say
 		// "Simon says press this key" or "Press this key"
-
+		if (a == 0) {
+			speak("Simon says press this key");
+			simonSays = true;
+		}
+		else {
+			speak("Press this key");
+			simonSays = false;
+		}
 		// 14. Above, set the value of simonSays to true/false appropriately
-
+		
 	}
 
 	private Component getNextRandomImage() {

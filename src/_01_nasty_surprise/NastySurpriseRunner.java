@@ -1,5 +1,11 @@
 package _01_nasty_surprise;
 
 public class NastySurpriseRunner {
-	NastySurprise ns = new NastySurprise();
+	
+	
+	public static void main(String[] args) {
+	
+		NastySurprise ns = new NastySurprise();
+		
+	}
 }
